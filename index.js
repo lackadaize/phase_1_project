@@ -1,22 +1,24 @@
 // Global variables
-filmAll = "https://swapi.dev/api/people"
+filmAll = "http://localhost:3000/characters"
+// filmAll = "https://swapi.dev/api/people"
 function loadCharacters(film) {
-// fetch(`http://localhost:3000/results`)
-    fetch(`https://swapi.dev/api/people`)
+    fetch(`http://localhost:3000/characters`)
+    // fetch(`https://swapi.dev/api/people`)
       .then((response) => response.json())
       .then((data) => {
-        let characterContainer = document.getElementById("character-container"); 
-        data.results.forEach(() => {
-          let characterCard = document.createElement("div"); 
-          characterCard.classList.add("character-card");
-          characterCard.innerHTML = `
-            <div>Name: ${data.results.name}<br/>Homeworld: `;
-          characterContainer.appendChild(characterCard); 
-        });
-        document.getElementById("character-container").appendChild(characterCard);
+        console.log(data)
+        // let characterContainer = document.getElementById("character-container")
+        // data.results.forEach(() => {
+        //   let characterCard = document.createElement("div")
+        //   characterCard.classList.add("character-card")
+        //   characterCard.innerHTML = `
+        //     <div>Name: ${data.results.name}<br/>Homeworld: `
+        //   characterContainer.appendChild(characterCard)
+        // });
+        // document.getElementById("character-container").appendChild(characterCard)
       })
       .catch((error) => {
-        console.error(error);
+        console.error(error)
       });
   }
 
