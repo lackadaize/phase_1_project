@@ -1,13 +1,7 @@
 // Global variables
 filmAll = "https://swapi.dev/api/people"
-// film1 = "films": https://swapi.dev/api/films/1
-// film2 = "films": https://swapi.dev/api/films/2
-// film3 = "films": https://swapi.dev/api/films/3
-// film4 = "films": https://swapi.dev/api/films/4
-// film5 = "films": https://swapi.dev/api/films/5
-// film6 = "films": https://swapi.dev/api/films/6
 function loadCharacters(film) {
-    // fetch(`http://localhost:3000/results`)
+// fetch(`http://localhost:3000/results`)
     fetch(`https://swapi.dev/api/people`)
       .then((response) => response.json())
       .then((data) => {
