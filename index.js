@@ -7,15 +7,17 @@ function loadCharacters(film) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        // let characterContainer = document.getElementById("character-container")
-        // data.results.forEach(() => {
-        //   let characterCard = document.createElement("div")
-        //   characterCard.classList.add("character-card")
-        //   characterCard.innerHTML = `
-        //     <div>Name: ${data.results.name}<br/>Homeworld: `
-        //   characterContainer.appendChild(characterCard)
-        // });
-        // document.getElementById("character-container").appendChild(characterCard)
+        let characterContainer = document.getElementById("character-container")
+        data.forEach((character) => {
+          let characterCard = document.createElement("div")
+          characterCard.classList.add("character-card")
+          characterCard.innerHTML = `
+            <div><img src="${character.image_url}"></div>
+            <div>${character.name}</div>
+            `
+          characterContainer.appendChild(characterCard)
+        });
+        document.getElementById("character-container").appendChild(characterCard)
       })
       .catch((error) => {
         console.error(error)
