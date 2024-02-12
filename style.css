@@ -1,4 +1,3 @@
-/* Global Styles */
 html {
     height: 100%;
     width: 100%;
@@ -9,29 +8,36 @@ body {
     min-height: 100%;
     min-width: 340px;
     max-width: 900px;
-    margin: 20px auto;
+    margin: 0 auto;
     background-color: #000;
     color: #fff;
 }
 
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 0;
+    color: yellow;
+    text-align: left;
 }
 
-/* Body Styles */
-
-#main {
+header, #main {
+    width: 100%;
+    clear: both;
     position: relative;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #fff;
-    background: rgba(255, 255, 255, 0.3);
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 2px 5px 5px #333;
+}
+
+#header-title {
+    max-width: 400px;
+}
+
+#character-filter {
+    max-width: 300px;
+    float: right;
+    margin-top: 14px;
 }
 
 .column-film {
@@ -39,26 +45,42 @@ h1 {
     float: left;
 }
 
-label {
-    font-weight: bold;
-    font-size: 20px;
-    width: 100%;
-    clear: both;
-    float: left;
-    margin-bottom: 8px;
+select {
+    border: 1px solid yellow;
 }
 
 select, option {
     padding: 8px;
     font-size: 18px;
+    background-color: #000;
+    color: yellow;
 }
 
 select option {
-    background-color: transparent;
+    margin-top: 8px;
 }
 
 .character-card {
-    width: 20%;
+    width: 24%;
     text-align: center;
     float: left;
+    height: auto;
+    margin: 0 5px 20px 0;
+}
+
+.character-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.character-name {
+    padding: 10px;
+}
+
+footer {
+    width: 100%;
+    clear: both;
+    text-align: center;
+    font-size: 30px;
+    color: yellow;
 }

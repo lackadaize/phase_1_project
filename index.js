@@ -12,8 +12,8 @@ function loadCharacters(film) {
           let characterCard = document.createElement("div")
           characterCard.classList.add("character-card")
           characterCard.innerHTML = `
-            <div><img src="${character.image_url}"></div>
-            <div>${character.name}</div>
+            <div class="character-img"><img src="${character.image_url}" alt="${character.name} image"></div>
+            <div class="character-name">${character.name}</div>
             `
           characterContainer.appendChild(characterCard)
         });
