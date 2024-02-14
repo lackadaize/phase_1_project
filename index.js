@@ -1,6 +1,13 @@
 // Global variables
-const filmAll = "http://localhost:3000/characters"
-let filmAllArray = [];
+const filmAll = "http://localhost:3000/characters" // fetch url
+let filmAllArray = [] // Array for characters in all films
+let filmOneArray =[1]
+let filmTwoArray =[2]
+let filmThreeArray =[3]
+let filmFourArray =[4]
+let filmFiveArray =[5]
+let filmSixArray =[6]
+let filmCurrent = filmAllArray // Array for the current film selection
 
 // Fetch array of all character objects
 function initialFetch() {
@@ -15,7 +22,7 @@ function initialFetch() {
     })
 }
 
-// Populate all characters on page load
+// Populate characters on page load and when "film-select" value is changed
 function loadCharacters(array) {
     let characterContainer = document.getElementById("character-container")
     array.forEach((character) => {
@@ -32,21 +39,23 @@ function loadCharacters(array) {
     })
 }
 
+function filterCharacters(filmCurrent) {
+    const filmSelect = document.getElementById("film-select")
+    filmSelect.addEventListener("change", (event) => {
+        event.preventDefault()
+        filmCurrent = filmSelect.value
+        console.log(filmCurrent)
+    })
+} 
+
 // remove() note
 // removeChild()
 // innHTML reset children of 'character-container' if time is of essence but insecure
-    //  State in READM.md
-
-function filterCharacters() {
-    const filmSelect = document.getElementById("film-select")
-    const characterContainer = document.getElementById("character-container")
-    filmSelect.addEventListener("change", (event) => {
-        event.preventDefault()
-        console.log(filmSelect.value)
-    })
-}   
+    //  State in READM.md  
 
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
     filterCharacters()
+    // filmCurrent = filmAllArray;
+    // console.log(filmCurrent);
 })
