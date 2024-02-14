@@ -4,11 +4,10 @@ let filmAllArray = [];
 
 // Fetch array of all character objects
 function initialFetch() {
-
     fetch(filmAll)
         .then(response => response.json())
         .then((data) => {
-            filmAllArray = data
+            filmAllArray = data // replace filmAllArray variable with 'data' response
             loadCharacters(filmAllArray)
         })
         .catch((error) => {
@@ -39,12 +38,11 @@ function loadCharacters(array) {
     //  State in READM.md
 
 function filterCharacters() {
-    const filmSelect = document.getElementById("film-select").value
+    const filmSelect = document.getElementById("film-select")
     const characterContainer = document.getElementById("character-container")
-
     filmSelect.addEventListener("change", (event) => {
         event.preventDefault()
-        console.log(characterContainer)
+        console.log(filmSelect.value)
     })
 }   
 
