@@ -8,9 +8,7 @@ function initialFetch() {
     fetch(filmAll)
         .then(response => response.json())
         .then((data) => {
-            console.log(data)
-            filmAllArray.push(data) // doesn't work when it's just (data) without [0]
-            console.log(filmAllArray)
+            filmAllArray = data
             loadCharacters(filmAllArray)
         })
         .catch((error) => {
@@ -35,44 +33,22 @@ function loadCharacters(array) {
     })
 }
 
-// // Initial Character Load
-// function loadCharacters() {
-//     fetch(filmAll)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         filmAllArray = data
-//         let characterContainer = document.getElementById("character-container")
-//         data.forEach((character) => {
-//           let characterCard = document.createElement("div")
-//           characterCard.classList.add("character-card")
-//           characterCard.innerHTML = `
-//             <div class="character-img">
-//                 <img src="${character.image_url}" alt="${character.name} image">
-//             </div>
-//             <div class="character-name">${character.name}</div>
-//             `
-//           characterContainer.appendChild(characterCard)
-          
-//         })
-//       })
-//       .catch((error) => {
-//         console.error(error)
-//       })
-//   }
+// remove() note
+// removeChild()
+// innHTML reset children of 'character-container' if time is of essence but insecure
+    //  State in READM.md
 
+function filterCharacters() {
+    const filmSelect = document.getElementById("film-select").value
+    const characterContainer = document.getElementById("character-container")
 
-
-// function filterCharacters() {
-//     const filmSelect = document.getElementById("film-select").value
-//     const characterContainer = document.getElementById("character-container")
-
-//     filmSelect.addEventListener("change", (event) => {
-//         event.preventDefault()
-//         console.log(characterContainer)
-//     })
-// }
+    filmSelect.addEventListener("change", (event) => {
+        event.preventDefault()
+        console.log(characterContainer)
+    })
+}   
 
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
-    // filterCharacters()
+    filterCharacters()
 })
