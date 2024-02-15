@@ -24,10 +24,10 @@ function initialFetch() {
 }
 
 // Populate characters on page load and when "film-select" value is changed
-function loadCharacters(array) {
+function loadCharacters(filmCurrent) {
     let characterContainer = document.getElementById("character-container")
-    array.forEach((character) => {
-        // characterContainer.innerHTML = ''
+    characterContainer.innerHTML = ''
+    filmCurrent.forEach((character) => {
         let characterCard = document.createElement("div")
         characterCard.classList.add("character-card")
         characterCard.innerHTML = 
@@ -59,5 +59,5 @@ function filterCharacters(filmCurrent) {
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
     filterCharacters()
-    // console.log(filmCurrent);
+    console.log(filmCurrent);
 })
