@@ -7,7 +7,8 @@ let filmThreeArray =[3]
 let filmFourArray =[4]
 let filmFiveArray =[5]
 let filmSixArray =[6]
-let filmCurrent = filmAllArray // Array for the current film selection
+let filmCurrent = filmAllArray // Array for the current film selected
+
 
 // Fetch array of all character objects
 function initialFetch() {
@@ -15,7 +16,7 @@ function initialFetch() {
         .then(response => response.json())
         .then((data) => {
             filmAllArray = data // replace filmAllArray variable with 'data' response
-            loadCharacters(filmAllArray)
+            loadCharacters(filmAllArray) // will need to pass a parameter/argument somewhere here
         })
         .catch((error) => {
         console.log(error);
@@ -26,6 +27,7 @@ function initialFetch() {
 function loadCharacters(array) {
     let characterContainer = document.getElementById("character-container")
     array.forEach((character) => {
+        // characterContainer.innerHTML = ''
         let characterCard = document.createElement("div")
         characterCard.classList.add("character-card")
         characterCard.innerHTML = 
@@ -39,6 +41,12 @@ function loadCharacters(array) {
     })
 }
 
+// remove()
+// removeChild()
+// replaceChildren()
+// innerHTML reset children of 'character-container' if time is of essence but insecure
+    //  State in READM.md
+
 function filterCharacters(filmCurrent) {
     const filmSelect = document.getElementById("film-select")
     filmSelect.addEventListener("change", (event) => {
@@ -46,16 +54,10 @@ function filterCharacters(filmCurrent) {
         filmCurrent = filmSelect.value
         console.log(filmCurrent)
     })
-} 
-
-// remove() note
-// removeChild()
-// innHTML reset children of 'character-container' if time is of essence but insecure
-    //  State in READM.md  
+}   
 
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
     filterCharacters()
-    // filmCurrent = filmAllArray;
     // console.log(filmCurrent);
 })
