@@ -1,12 +1,12 @@
 // Global variables
 const filmAll = "http://localhost:3000/characters" // fetch url
 let filmAllArray = [] // Array for characters in all films
-let filmOneArray = [1]
-let filmTwoArray = [2]
-let filmThreeArray = [3]
-let filmFourArray = [4]
-let filmFiveArray = [5]
-let filmSixArray = [6]
+let filmOneArray = []
+let filmTwoArray = []
+let filmThreeArray = []
+let filmFourArray = []
+let filmFiveArray = []
+let filmSixArray = []
 let filmCurrent = filmAllArray // Array for the current film selected
 
 
@@ -15,8 +15,20 @@ function initialFetch() {
     fetch(filmAll)
         .then(response => response.json())
         .then((data) => {
-            filmAllArray = data // replace filmAllArray variable with 'data' response
+            filmAllArray = data // replace array variables with 'data' response
+            filmOneArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/1/"))
+            filmTwoArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/2/"))
+            filmThreeArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/3/"))
+            filmFourArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/4/"))
+            filmFiveArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/5/"))
+            filmSixArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/6/"))
             loadCharacters(filmAllArray) // will need to pass a parameter/argument somewhere here
+            // console.log(filmOneArray)
+            // console.log(filmTwoArray)
+            // console.log(filmThreeArray)
+            // console.log(filmFourArray)
+            // console.log(filmFiveArray)
+            // console.log(filmSixArray)
         })
         .catch((error) => {
         console.log(error);
