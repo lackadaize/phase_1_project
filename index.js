@@ -7,7 +7,7 @@ let filmThreeArray = []
 let filmFourArray = []
 let filmFiveArray = []
 let filmSixArray = []
-let filmCurrent = filmAllArray // Array for the current film selected
+let filmCurrent = []
 
 
 // Fetch array of all character objects
@@ -16,19 +16,14 @@ function initialFetch() {
         .then(response => response.json())
         .then((data) => {
             filmAllArray = data // replace array variables with 'data' response
+            filmCurrent = filmAllArray
             filmOneArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/1/"))
             filmTwoArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/2/"))
             filmThreeArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/3/"))
             filmFourArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/4/"))
             filmFiveArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/5/"))
             filmSixArray = filmAllArray.filter((film) => film.films.includes("https://swapi.dev/api/films/6/"))
-            loadCharacters(filmAllArray) // will need to pass a parameter/argument somewhere here
-            // console.log(filmOneArray)
-            // console.log(filmTwoArray)
-            // console.log(filmThreeArray)
-            // console.log(filmFourArray)
-            // console.log(filmFiveArray)
-            // console.log(filmSixArray)
+            loadCharacters(filmCurrent) // will need to pass a parameter/argument somewhere here
         })
         .catch((error) => {
         console.log(error);
@@ -59,14 +54,32 @@ function loadCharacters(filmCurrent) {
 // innerHTML reset children of 'character-container' if time is of essence but insecure
     //  State in READM.md
 
-function filterCharacters(filmCurrent) {
-    const filmSelect = document.getElementById("film-select")
-    filmSelect.addEventListener("change", (event) => {
-        // event.preventDefault() // Look to get rid of form unless 'submit' is necessary
-        filmCurrent = filmSelect.value
-        console.log(filmCurrent)
-    })
-}   
+    function filterCharacters() {
+        const filmSelect = document.getElementById("film-select");
+        filmSelect.addEventListener("change", (event) => {
+          event.preventDefault();
+          const selectedFilm = filmSelect.value;
+      
+          // Update filmCurrent based on the selected film
+          if (selectedFilm === "film-all") {
+            filmCurrent = filmAllArray;
+          } else if (selectedFilm === "film-one") {
+            filmCurrent = filmOneArray;
+          } else if (selectedFilm === "film-two") {
+            filmCurrent = filmTwoArray;
+          } else if (selectedFilm === "film-three") {
+            filmCurrent = filmThreeArray;
+          } else if (selectedFilm === "film-four") {
+            filmCurrent = filmFourArray;
+          } else if (selectedFilm === "film-five") {
+            filmCurrent = filmFiveArray;
+          } else if (selectedFilm === "film-six") {
+            filmCurrent = filmSixArray;
+          }
+      
+          loadCharacters(filmCurrent);
+        });
+      }  
 
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
