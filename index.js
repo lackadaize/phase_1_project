@@ -1,12 +1,12 @@
 // Global variables
 const filmAll = "http://localhost:3000/characters" // fetch url
 let filmAllArray = [] // Array for characters in all films
-let filmOneArray =[1]
-let filmTwoArray =[2]
-let filmThreeArray =[3]
-let filmFourArray =[4]
-let filmFiveArray =[5]
-let filmSixArray =[6]
+let filmOneArray = [1]
+let filmTwoArray = [2]
+let filmThreeArray = [3]
+let filmFourArray = [4]
+let filmFiveArray = [5]
+let filmSixArray = [6]
 let filmCurrent = filmAllArray // Array for the current film selected
 
 
@@ -31,12 +31,12 @@ function loadCharacters(filmCurrent) {
         let characterCard = document.createElement("div")
         characterCard.classList.add("character-card")
         characterCard.innerHTML = 
-        `
-        <div class="character-img">
-            <img src="${character.image_url}" alt="${character.name} image">
-        </div>
-        <div class="character-name">${character.name}</div>
-        `
+            `
+            <div class="character-img">
+                <a href=""><img src="${character.image_url}" alt="${character.name} image"></a>
+            </div>
+            <div class="character-name"><a href="">${character.name}</a></div>
+            `
         characterContainer.appendChild(characterCard)
     })
 }
@@ -50,7 +50,7 @@ function loadCharacters(filmCurrent) {
 function filterCharacters(filmCurrent) {
     const filmSelect = document.getElementById("film-select")
     filmSelect.addEventListener("change", (event) => {
-        event.preventDefault()
+        // event.preventDefault() // Look to get rid of form unless 'submit' is necessary
         filmCurrent = filmSelect.value
         console.log(filmCurrent)
     })
@@ -59,5 +59,6 @@ function filterCharacters(filmCurrent) {
 document.addEventListener("DOMContentLoaded", (event) => {
     initialFetch()
     filterCharacters()
-    console.log(filmCurrent);
 })
+
+// Each of your event listeners should also have its own unique callback function!
