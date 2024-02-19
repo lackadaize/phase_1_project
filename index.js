@@ -1,7 +1,7 @@
 // Global variables
 const filmAll = "http://localhost:3000/characters" // fetch url
 let filmAllArray = [] // Array variable for characters in all films
-let filmCurrent = []// variable to be used to designate the film currently chosen 
+let filmCurrent = [] // variable to be used to designate the film currently chosen 
 let filmOneArray = [] // The following array variables are for specific films
 let filmTwoArray = []
 let filmThreeArray = []
@@ -33,7 +33,7 @@ function initialFetch() {
 function loadCharacters(filmCurrent) {
     let characterContainer = document.getElementById("character-container")
     characterContainer.replaceChildren() // Remove any current child content
-    filmCurrent.forEach((character) => {
+    filmCurrent.forEach((character) => { //Iterate over filmCurrent array to create elements on the front-end
         let characterCard = document.createElement("div")
         characterCard.setAttribute("class", "character-card")
         characterCard.setAttribute("id", `character-${character.id}-card`)
@@ -63,7 +63,7 @@ function loadCharacters(filmCurrent) {
         let characterInfo = document.getElementById(`character-${character.id}-info`)
         characterInfo.style.display = "none"
         characterCard.addEventListener("click", () => {
-            // Show characterCard if hidden.  Hide character if shown
+            // Show characterCard if hidden.  Hide characterCard if shown
             if (characterInfo.style.display === "none") {
                 characterInfo.style.display = "block" 
                 // characterInfo.style.animation = "animation 3s 2"
@@ -71,12 +71,10 @@ function loadCharacters(filmCurrent) {
                 characterInfo.style.display = "none"
             }
         })
-    
-        // characterInfo.style.display = "block"
     })
 }
 
-// Filter characters based on select film chosen
+// Filter characters based on 'film-select' value chosen
 function filterCharacters() {
     const filmSelect = document.getElementById("film-select");
     filmSelect.addEventListener("change", (event) => {

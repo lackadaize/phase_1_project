@@ -132,6 +132,7 @@ select option {
     float: right;
     background-color: #fff;
     border: none;
+    font-weight: bold;
 }
 
 footer {
