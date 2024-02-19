@@ -40,10 +40,10 @@ function loadCharacters(filmCurrent) {
         characterCard.innerHTML = 
             `
             <div class="character-img">
-                <a href=""><img src="${character.image_url}" alt="${character.name} image"></a>
+                <img src="${character.image_url}" alt="${character.name} image">
             </div>
-            <div class="character-name"><a href="">${character.name}</a></div>
-            <div id="character-${character.id}-info" class="character-info hidden">
+            <div class="character-name">${character.name}</div>
+            <div id="character-${character.id}-info" class="character-info character-info-hidden">
                 <div>Species: ${character.species}</div>
                 <div>Homeworld: ${character.homeworld}</div>
                 <div>Birth Year: ${character.birth_year}</div>
@@ -57,6 +57,13 @@ function loadCharacters(filmCurrent) {
             </div>
             `
         characterContainer.appendChild(characterCard)
+        
+        // Click characterCard Events
+        characterCard.addEventListener("click", () => {
+            console.log("Hello")
+            // Add your code to expand character information here
+        })
+
     })
 }
 

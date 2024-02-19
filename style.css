@@ -66,6 +66,7 @@ select option {
     float: left;
     height: auto;
     margin: 0 5px 20px 0;
+    cursor: pointer;
 }
 
 .character-card a {
@@ -75,6 +76,12 @@ select option {
 
 .character-info {
     text-align: left;
+}
+
+.character-info-hidden {
+    display: none;
+    visibility: hidden;
+    height: 0;
 }
 
 .character-card img {
