@@ -14,14 +14,14 @@ function initialFetch() {
     fetch(filmAll)
         .then(response => response.json())
         .then((data) => {
-            filmAllArray = data 
+            filmAllArray = data.sort(function(){return .5 - Math.random()}) 
             filmCurrent = filmAllArray
-            filmOneArray = filmAllArray.filter((film) => film.films.includes("The Phantom Menace"))
-            filmTwoArray = filmAllArray.filter((film) => film.films.includes("Attack of the Clones"))
-            filmThreeArray = filmAllArray.filter((film) => film.films.includes("Revenge of the Sith"))
-            filmFourArray = filmAllArray.filter((film) => film.films.includes("A New Hope"))
-            filmFiveArray = filmAllArray.filter((film) => film.films.includes("The Empire Strikes Back"))
-            filmSixArray = filmAllArray.filter((film) => film.films.includes("Return of the Jedi"))
+            filmOneArray = filmAllArray.filter((film) => film.films.includes("The Phantom Menace")).sort(function(){return .5 - Math.random()})
+            filmTwoArray = filmAllArray.filter((film) => film.films.includes("Attack of the Clones")).sort(function(){return .5 - Math.random()})
+            filmThreeArray = filmAllArray.filter((film) => film.films.includes("Revenge of the Sith")).sort(function(){return .5 - Math.random()})
+            filmFourArray = filmAllArray.filter((film) => film.films.includes("A New Hope")).sort(function(){return .5 - Math.random()})
+            filmFiveArray = filmAllArray.filter((film) => film.films.includes("The Empire Strikes Back")).sort(function(){return .5 - Math.random()})
+            filmSixArray = filmAllArray.filter((film) => film.films.includes("Return of the Jedi")).sort(function(){return .5 - Math.random()})
             loadCharacters(filmCurrent) 
         })
         .catch((error) => {
@@ -44,17 +44,17 @@ function loadCharacters(filmCurrent) {
             </div>
             <div class="character-name">${character.name}</div>
             <div id="character-${character.id}-info" class="character-info /*character-info-hide*/">
+                <button class="close-button">X</button>
                 <div>Species: ${character.species}</div>
                 <div>Homeworld: ${character.homeworld}</div>
                 <div>Birth Year: ${character.birth_year}</div>
-                <div>Heigth: ${character.height}</div>
+                <div>Height: ${character.height}</div>
                 <div>Mass: ${character.mass}</div>
                 <div>Hair Color: ${character.hair_color}</div>
                 <div>Skin Color: ${character.skin_color}</div>
                 <div>Eye Color: ${character.eye_color}</div>
                 <!--<div>Films: ${character.films}</div>-->
                 <!--<div>Films: ${character.starships}</div>-->
-                <button class="close-button">X</button>
             </div>
             `
         characterContainer.appendChild(characterCard)
@@ -66,6 +66,7 @@ function loadCharacters(filmCurrent) {
             // Show characterCard if hidden.  Hide character if shown
             if (characterInfo.style.display === "none") {
                 characterInfo.style.display = "block" 
+                // characterInfo.style.animation = "animation 3s 2"
                 } else { 
                 characterInfo.style.display = "none"
             }
