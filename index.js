@@ -43,7 +43,7 @@ function loadCharacters(filmCurrent) {
                 <img src="${character.image_url}" alt="${character.name} image">
             </div>
             <div class="character-name">${character.name}</div>
-            <div id="character-${character.id}-info" class="character-info character-info-hidden">
+            <div id="character-${character.id}-info" class="character-info /*character-info-hide*/">
                 <div>Species: ${character.species}</div>
                 <div>Homeworld: ${character.homeworld}</div>
                 <div>Birth Year: ${character.birth_year}</div>
@@ -54,16 +54,24 @@ function loadCharacters(filmCurrent) {
                 <div>Eye Color: ${character.eye_color}</div>
                 <!--<div>Films: ${character.films}</div>-->
                 <!--<div>Films: ${character.starships}</div>-->
+                <button class="close-button">X</button>
             </div>
             `
         characterContainer.appendChild(characterCard)
         
         // Click characterCard Events
+        let characterInfo = document.getElementById(`character-${character.id}-info`)
+        characterInfo.style.display = "none"
         characterCard.addEventListener("click", () => {
-            console.log("Hello")
-            // Add your code to expand character information here
+            // Show characterCard if hidden.  Hide character if shown
+            if (characterInfo.style.display === "none") {
+                characterInfo.style.display = "block" 
+                } else { 
+                characterInfo.style.display = "none"
+            }
         })
-
+    
+        // characterInfo.style.display = "block"
     })
 }
 

@@ -78,12 +78,6 @@ select option {
     text-align: left;
 }
 
-.character-info-hidden {
-    display: none;
-    visibility: hidden;
-    height: 0;
-}
-
 .character-card img {
     max-width: 100%;
     margin-bottom: 10px;
