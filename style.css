@@ -73,6 +73,10 @@ select option {
     text-decoration: none;
 }
 
+.character-info {
+    text-align: left;
+}
+
 .character-card img {
     max-width: 100%;
     margin-bottom: 10px;
