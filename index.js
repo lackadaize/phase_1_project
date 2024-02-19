@@ -35,13 +35,15 @@ function loadCharacters(filmCurrent) {
     characterContainer.replaceChildren() // Remove any current child content
     filmCurrent.forEach((character) => {
         let characterCard = document.createElement("div")
-        characterCard.classList.add("character-card")
+        characterCard.setAttribute("class", "character-card")
+        characterCard.setAttribute("id", `character-${character.id}-card`)
         characterCard.innerHTML = 
             `
             <div class="character-img">
                 <a href=""><img src="${character.image_url}" alt="${character.name} image"></a>
             </div>
             <div class="character-name"><a href="">${character.name}</a></div>
+            <div id="character-${character.id}-info" class="character-info hidden">Test</div>
             `
         characterContainer.appendChild(characterCard)
     })
