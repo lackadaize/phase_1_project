@@ -100,7 +100,7 @@ function filterCharacters() {
 }  
 
 // Initial load
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
     initialFetch()
     filterCharacters()
 })
