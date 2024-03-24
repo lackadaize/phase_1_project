@@ -35,9 +35,3 @@ https://github.com/lackadaize/phase_1_project
 
 [GNU General Public License v3.0]
 https://choosealicense.com/licenses/gpl-3.0
-
-## Stretch Goals from Flatiron School
-
-If you think your blog post and/or video are really good and would add value, add them to your README.md.
-
-If you want to go above and beyond, record a few seconds of yourself navigating the app and turn it into a gif. Then, add the gif in your README.md. That way anyone can get a sense of how your app works without leaving the README's page on GitHub!
