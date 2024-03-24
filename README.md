@@ -13,7 +13,7 @@ JavaScript, JSON, HTML5, CSS
 
 ### API
 
-JSON cloned to local server from https://swapi.dev and modified to include image urls and convert 'character' data from urls to strings.
+JSON cloned to local JSON server from https://swapi.dev and modified to include image urls and convert 'character' data from urls to strings.
 
 ## Credits
 
