@@ -63,7 +63,6 @@ function loadCharacters(filmCurrent) {
             // Show characterCard if hidden.  Hide characterCard if shown
             if (characterInfo.style.display === "none") {
                 characterInfo.style.display = "block" 
-                // characterInfo.style.animation = "animation 3s 2"
                 } else { 
                 characterInfo.style.display = "none"
             }
