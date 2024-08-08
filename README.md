@@ -9,7 +9,7 @@ Everything you need to know about your favorite Star Wars characters.
 ## Technologies Used
 ### Languages
 
-JavaScript, JSON, HTML5, CSS
+JavaScript, JSON, HTML, CSS
 
 ### API
 
