@@ -76,27 +76,29 @@ function loadCharacters(filmCurrent) {
 
 // Filter characters based on 'film-select' value chosen
 function filterCharacters() {
-    const filmSelect = document.getElementById("film-select");
-    filmSelect.addEventListener("change", (event) => {
-        event.preventDefault()
-        const selectedFilm = filmSelect.value;  
-        if (selectedFilm === "film-all") {
-        filmCurrent = filmAllArray
-        } else if (selectedFilm === "film-one") {
-        filmCurrent = filmOneArray
-        } else if (selectedFilm === "film-two") {
-        filmCurrent = filmTwoArray
-        } else if (selectedFilm === "film-three") {
-        filmCurrent = filmThreeArray
-        } else if (selectedFilm === "film-four") {
-        filmCurrent = filmFourArray
-        } else if (selectedFilm === "film-five") {
-        filmCurrent = filmFiveArray
-        } else if (selectedFilm === "film-six") {
-        filmCurrent = filmSixArray
-        }      
+    const filmSelect = document.getElementById("film-select")
+    filmSelect.addEventListener("change", () => filmChange())
+    const filmChange = () => {
+        const selectedFilm = filmSelect.value;     
+        switch (selectedFilm) {
+          case "film-all": filmCurrent = filmAllArray         
+          case "film-one": film = filmOneArray    
+            break
+          case "film-two": filmCurrent = filmTwoArray;
+            break
+          case "film-three": filmCurrent = filmThreeArray;
+            break
+          case "film-four": filmCurrent = filmFourArray;
+            break
+          case "film-five": filmCurrent = filmFiveArray;
+            break
+          case "film-six": filmCurrent = filmSixArray;
+            break
+          default: console.log("THE FORCE IS NOT STRONG WITH US!");
+            break
+        }        
         loadCharacters(filmCurrent)
-    })
+    }
 }  
 
 // Initial load
