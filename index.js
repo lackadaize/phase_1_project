@@ -1,8 +1,8 @@
 // Global variables
-const filmAll = "http://localhost:3000/characters" // fetch url
-let filmAllArray = [] // Array variable for characters in all films
-let filmCurrent = [] // variable to be used to designate the film currently chosen 
-let filmOneArray = [] // The following array variables are for specific films
+const filmAll = "http://localhost:3000/characters"
+let filmCurrent = [] // Designates the film currently chosen with #film-select
+let filmAllArray = [] // For characters in all films
+let filmOneArray = []
 let filmTwoArray = []
 let filmThreeArray = []
 let filmFourArray = []
@@ -24,16 +24,14 @@ function initialFetch() {
             filmSixArray = filmAllArray.filter((film) => film.films.includes("Return of the Jedi")).sort(function(){return .5 - Math.random()})
             loadCharacters(filmCurrent) 
         })
-        .catch((error) => {
-        console.log(error)
-    })
+        .catch((error) => console.log(error))
 }
 
 // Populate characters on page load and when "film-select" value is changed
 function loadCharacters(filmCurrent) {
     let characterContainer = document.getElementById("character-container")
     characterContainer.replaceChildren() // Remove any current child content
-    filmCurrent.forEach((character) => { //Iterate over filmCurrent array to create elements on the front-end
+    filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
         let characterCard = document.createElement("div")
         characterCard.setAttribute("class", "character-card")
         characterCard.setAttribute("id", `character-${character.id}-card`)
@@ -53,8 +51,7 @@ function loadCharacters(filmCurrent) {
                 <div>Hair Color: ${character.hair_color}</div>
                 <div>Skin Color: ${character.skin_color}</div>
                 <div>Eye Color: ${character.eye_color}</div>
-                <!--<div>Films: ${character.films}</div>-->
-                <!--<div>Films: ${character.starships}</div>-->
+                <div>Films: ${character.films}</div>
             </div>
             `
         characterContainer.appendChild(characterCard)
@@ -81,20 +78,21 @@ function filterCharacters() {
     const filmChange = () => {
         const selectedFilm = filmSelect.value;     
         switch (selectedFilm) {
-          case "film-all": filmCurrent = filmAllArray         
-          case "film-one": film = filmOneArray    
+          case "film-all": filmCurrent = filmAllArray   
+            break      
+          case "film-one": filmCurrent = filmOneArray    
             break
-          case "film-two": filmCurrent = filmTwoArray;
+          case "film-two": filmCurrent = filmTwoArray
             break
-          case "film-three": filmCurrent = filmThreeArray;
+          case "film-three": filmCurrent = filmThreeArray
             break
-          case "film-four": filmCurrent = filmFourArray;
+          case "film-four": filmCurrent = filmFourArray
             break
-          case "film-five": filmCurrent = filmFiveArray;
+          case "film-five": filmCurrent = filmFiveArray
             break
-          case "film-six": filmCurrent = filmSixArray;
+          case "film-six": filmCurrent = filmSixArray
             break
-          default: console.log("THE FORCE IS NOT STRONG WITH US!");
+          default: console.log("THE FORCE IS NOT STRONG WITH US!")
             break
         }        
         loadCharacters(filmCurrent)
