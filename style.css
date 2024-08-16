@@ -128,7 +128,7 @@ select option {
     text-align: left;
 }
 
-#character-card-container-background {
+#character-card-background {
     position: fixed; 
     z-index: 1; 
     left: 0;

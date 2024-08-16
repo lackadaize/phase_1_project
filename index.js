@@ -68,15 +68,13 @@ function loadCharacters(filmCurrent) {
             }
         })
         
-        let characterCardContainerBackground = document.getElementById(`character-card-container-background`)
-        characterCardContainerBackground.style.display = "none"
-        characterCardContainerBackground.addEventListener("click", () => {
-            // Show characterCardContainerBackground if hidden.  Hide characterCard if shown
-            if (characterCardContainerBackground.style.display === "none") {
-              characterCardContainerBackground.style.display = "block" 
-              } else { 
-              characterCardContainerBackground.style.display = "none"
-            }
+        let characterCardBackground = document.getElementById(`character-card-background`)
+        characterCardBackground.style.display = "none"
+        characterCard.addEventListener("click", () => {
+          characterCardBackground.style.display = "block"
+        })
+        characterCardBackground.addEventListener("click", () => {
+          characterCardBackground.style.display = "none"
         })
     })
 }
