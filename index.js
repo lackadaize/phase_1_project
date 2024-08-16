@@ -51,7 +51,7 @@ function loadCharacters(filmCurrent) {
                 <div>Hair Color: ${character.hair_color}</div>
                 <div>Skin Color: ${character.skin_color}</div>
                 <div>Eye Color: ${character.eye_color}</div>
-                <div>Films: ${character.films}</div>
+                <div>Films: ${character.films.join(", ")}</div>
             </div>
             `
         characterContainer.appendChild(characterCard)
