@@ -67,6 +67,17 @@ function loadCharacters(filmCurrent) {
                 characterInfo.style.display = "none"
             }
         })
+        
+        let characterCardContainerBackground = document.getElementById(`character-card-container-background`)
+        characterCardContainerBackground.style.display = "none"
+        characterCardContainerBackground.addEventListener("click", () => {
+            // Show characterCardContainerBackground if hidden.  Hide characterCard if shown
+            if (characterCardContainerBackground.style.display === "none") {
+              characterCardContainerBackground.style.display = "block" 
+              } else { 
+              characterCardContainerBackground.style.display = "none"
+            }
+        })
     })
 }
 
