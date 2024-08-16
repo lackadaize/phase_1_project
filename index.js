@@ -29,7 +29,7 @@ function initialFetch() {
 
 // Populate characters on page load and when "film-select" value is changed
 function loadCharacters(filmCurrent) {
-    let characterContainer = document.getElementById("character-container")
+    let characterContainer = document.getElementById("characters-container")
     characterContainer.replaceChildren() // Remove any current child content
     filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
         let characterCard = document.createElement("div")
