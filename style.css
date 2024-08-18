@@ -93,9 +93,11 @@ select option {
 #film-name {
     text-align: center;
     margin-bottom: 15px;
-    font-size: 50px;
+    font-size: 60px;
     color: yellow;
     font-family: Star Jedi;
+    transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
 }
 
 #characters-container {
