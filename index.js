@@ -82,23 +82,31 @@ function loadCharacters(filmCurrent) {
 // Filter characters based on 'film-select' value chosen
 function filterCharacters() {
     const filmSelect = document.getElementById("film-select")
+    const filmName = document.getElementById('film-name')
     filmSelect.addEventListener("change", () => filmChange())
     const filmChange = () => {
         const selectedFilm = filmSelect.value;     
         switch (selectedFilm) {
           case "film-all": filmCurrent = filmAllArray   
+            filmName.textContent = "All Films"
             break      
-          case "film-one": filmCurrent = filmOneArray    
+          case "film-one": filmCurrent = filmOneArray   
+            filmName.textContent = "The Phantom Menace" 
             break
           case "film-two": filmCurrent = filmTwoArray
+            filmName.textContent = "Attack of the Clones"
             break
           case "film-three": filmCurrent = filmThreeArray
+            filmName.textContent = "Revenge of the Sith"
             break
           case "film-four": filmCurrent = filmFourArray
+            filmName.textContent = "A New Hope"
             break
           case "film-five": filmCurrent = filmFiveArray
+            filmName.textContent = "The Empire Strikes Back"
             break
           case "film-six": filmCurrent = filmSixArray
+            filmName.textContent = "Return of the Jedi"
             break
           default: console.log("THE FORCE IS NOT STRONG WITH US!")
             break
