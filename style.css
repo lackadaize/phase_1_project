@@ -11,8 +11,6 @@ body {
     margin: 0 auto;
     background-color: #000;
     background: url("./img/slow_stars_9.gif");
-    /* background-repeat: no-repeat;
-    background-size: cover; */
     color: #fff;
 
 }
@@ -36,6 +34,11 @@ h2 {
     margin-bottom: 8px;
 }
 
+@font-face {
+    font-family: Star Jedi;
+    src: url(./fonts/Starjedi.ttf);
+  }
+
 header, #main {
     width: 100%;
     clear: both;
@@ -54,7 +57,7 @@ header {
 }
 
 #main {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 #header-title {
@@ -85,6 +88,14 @@ select, option {
 
 select option {
     margin-top: 8px;
+}
+
+#film-name {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 50px;
+    color: yellow;
+    font-family: Star Jedi;
 }
 
 #characters-container {
