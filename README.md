@@ -21,6 +21,8 @@ JSON cloned to local JSON server from https://swapi.dev and modified to include 
 
 Images obtained from https://github.com/vieraboschkova/swapi-gallery
 
+Star Wars fonts obtained from https://www.dafont.com/star-jedi.font
+
 ## Author
 
 Jonathan Kulak
