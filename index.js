@@ -56,7 +56,7 @@ const clickCharacter = (character) => {
     characterBackground.style.display = "block"
     // Populate character info
     document.querySelector('#character-card-container-image img').src = character.image_url
-    document.getElementById('character-card-name').textContent = character.name
+    document.getElementById('character-card-container-name').textContent = character.name
     document.getElementById('character-species').textContent = character.species
     document.getElementById('character-homeworld').textContent = character.homeworld
     document.getElementById('character-birth-year').textContent = character.birth_year
@@ -65,7 +65,7 @@ const clickCharacter = (character) => {
     document.getElementById('character-hair-color').textContent = character.hair_color
     document.getElementById('character-skin-color').textContent = character.skin_color
     document.getElementById('character-eye-color').textContent = character.eye_color
-    document.getElementById('character-films').textContent = character.films
+    document.getElementById('character-films').textContent = character.films.join(", ")
   })
   characterBackground.addEventListener("click", () => {
     // Hide #character-card-background
