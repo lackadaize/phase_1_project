@@ -10,7 +10,7 @@ let filmFiveArray = []
 let filmSixArray = []
 
 // Fetch array of all character objects from db.json
-function initialFetch() {
+const initialFetch = () => {
     fetch(filmAll)
         .then(response => response.json())
         .then((data) => {
@@ -28,7 +28,7 @@ function initialFetch() {
 }
 
 // Populate characters on page load and when "film-select" value is changed
-function loadCharacters(filmCurrent) {
+const loadCharacters = (filmCurrent) => {
     let characterContainer = document.getElementById("characters-container")
     characterContainer.replaceChildren() // Remove any current child content
     filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
@@ -80,7 +80,7 @@ function loadCharacters(filmCurrent) {
 }
 
 // Filter characters based on 'film-select' value chosen
-function filterCharacters() {
+const filterCharacters = () => {
     const filmSelect = document.getElementById("film-select")
     const filmName = document.getElementById('film-name')
     filmSelect.addEventListener("change", () => filmChange())
