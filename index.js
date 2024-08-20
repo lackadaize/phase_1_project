@@ -31,6 +31,7 @@ const initialFetch = () => {
 const loadCharacters = (filmCurrent) => {
   let characterContainer = document.getElementById("characters-container")
   characterContainer.replaceChildren() // Remove any current child content
+  characterContainer.classList.add("fade-in")
   filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
     characterCard = document.createElement("div")
     characterCard.setAttribute("class", "character-card")
@@ -53,6 +54,7 @@ const clickCharacter = (character) => {
   characterBackground.style.display = "none"
   characterCard.addEventListener("click", () => {
     // Show #character-card-background
+    characterBackground.classList.add("fade-in")
     characterBackground.style.display = "block"
     // Populate character info
     document.querySelector('#character-card-container-image img').src = character.image_url
