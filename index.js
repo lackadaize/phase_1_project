@@ -55,28 +55,19 @@ const loadCharacters = (filmCurrent) => {
         <div>Films: ${character.films.join(", ")}</div>
       </div>
       `
-    characterContainer.appendChild(characterCard)
-        
-    // Click characterCard Events
-    let characterInfo = document.getElementById(`character-${character.id}-info`)
-    characterInfo.style.display = "none"
-    characterCard.addEventListener("click", () => {
-      // Show characterCard if hidden.  Hide characterCard if shown
-      if (characterInfo.style.display === "none") {
-        characterInfo.style.display = "block" 
-        } else { 
-        characterInfo.style.display = "none"
-        }
-      })
-        
-    let characterCardBackground = document.getElementById(`character-card-background`)
+    characterContainer.appendChild(characterCard)  
+    clickCharacter(characterCard)
+  })
+}
+
+const clickCharacter = (characterCard) => {
+  let characterCardBackground = document.getElementById(`character-card-background`)
+  characterCardBackground.style.display = "none"
+  characterCard.addEventListener("click", () => {
+    characterCardBackground.style.display = "block"
+  })
+  characterCardBackground.addEventListener("click", () => {
     characterCardBackground.style.display = "none"
-    characterCard.addEventListener("click", () => {
-      characterCardBackground.style.display = "block"
-    })
-    characterCardBackground.addEventListener("click", () => {
-      characterCardBackground.style.display = "none"
-    })
   })
 }
 
