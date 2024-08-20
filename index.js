@@ -8,6 +8,7 @@ let filmThreeArray = []
 let filmFourArray = []
 let filmFiveArray = []
 let filmSixArray = []
+let characterSelected
 
 // Fetch array of all character objects from db.json
 const initialFetch = () => {
