@@ -33,40 +33,44 @@ const loadCharacters = (filmCurrent) => {
   let characterContainer = document.getElementById("characters-container")
   characterContainer.replaceChildren() // Remove any current child content
   filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
-    let characterCard = document.createElement("div")
+    const characterCard = document.createElement("div")
     characterCard.setAttribute("class", "character-card")
-    characterCard.setAttribute("id", `character-${character.id}-card`)
+    characterCard.setAttribute("id", character.id)
     characterCard.innerHTML = 
       `
       <div class="character-img">
         <img src="${character.image_url}" alt="${character.name} image">
       </div>
       <div class="character-name">${character.name}</div>
-      <div id="character-${character.id}-info" class="character-info /*character-info-hide*/">
-        <button class="close-button">X</button>
-        <div>Species: ${character.species}</div>
-        <div>Homeworld: ${character.homeworld}</div>
-        <div>Birth Year: ${character.birth_year}</div>
-        <div>Height: ${character.height}</div>
-        <div>Mass: ${character.mass}</div>
-        <div>Hair Color: ${character.hair_color}</div>
-        <div>Skin Color: ${character.skin_color}</div>
-        <div>Eye Color: ${character.eye_color}</div>
-        <div>Films: ${character.films.join(", ")}</div>
-      </div>
       `
     characterContainer.appendChild(characterCard)  
     clickCharacter(characterCard)
   })
 }
 
+// Click character to open modal with character info
 const clickCharacter = (characterCard) => {
   let characterCardBackground = document.getElementById(`character-card-background`)
   characterCardBackground.style.display = "none"
   characterCard.addEventListener("click", () => {
+    // Show #character-card-background
     characterCardBackground.style.display = "block"
+    // Populate character info
+    document.getElementById('character-card-name').textContent = characterCard.name
+    document.getElementById('character-species').textContent = characterCard.species
+    document.getElementById('character-homeworld').textContent = characterCard.homeworld
+    document.getElementById('character-birth-year').textContent = characterCard.birth_year
+    document.getElementById('character-height').textContent = characterCard.height
+    document.getElementById('character-mass').textContent = characterCard.mass
+    document.getElementById('character-hair-color').textContent = characterCard.hair_color
+    document.getElementById('character-skin-color').textContent = characterCard.skin_color
+    document.getElementById('character-eye-color').textContent = characterCard.eye_color
+    document.getElementById('character-films').textContent = characterCard.films
+    characterSelected = characterCard.id
+    console.log(characterSelected)
   })
   characterCardBackground.addEventListener("click", () => {
+    // Hide #character-card-background
     characterCardBackground.style.display = "none"
   })
 }
