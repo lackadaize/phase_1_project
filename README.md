@@ -10,7 +10,8 @@ As of Version 1.0 the app is not yet optimized for mobile display.  Also, for my
 
 ### Screenshots
 
-![Screenshot](./img/readme_img/phase_1_project_all_films)
+![Screenshot](./img/readme_img/phase_1_project_all_films.jpg)
+![Screenshot](./img/readme_img/phase_1_project_yoda.jpg)
 
 ## Technologies Used
 ### Languages
