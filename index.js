@@ -8,7 +8,6 @@ let filmThreeArray = []
 let filmFourArray = []
 let filmFiveArray = []
 let filmSixArray = []
-let characterSelected
 
 // Fetch array of all character objects from db.json
 const initialFetch = () => {
@@ -33,9 +32,9 @@ const loadCharacters = (filmCurrent) => {
   let characterContainer = document.getElementById("characters-container")
   characterContainer.replaceChildren() // Remove any current child content
   filmCurrent.forEach((character) => { // Iterate over filmCurrent array to create elements on the front-end
-    const characterCard = document.createElement("div")
+    characterCard = document.createElement("div")
     characterCard.setAttribute("class", "character-card")
-    characterCard.setAttribute("id", character.id)
+    characterCard.setAttribute("id", `character-${character.id}`)
     characterCard.innerHTML = 
       `
       <div class="character-img">
@@ -44,34 +43,33 @@ const loadCharacters = (filmCurrent) => {
       <div class="character-name">${character.name}</div>
       `
     characterContainer.appendChild(characterCard)  
-    clickCharacter(characterCard)
+    clickCharacter(character)
   })
 }
 
 // Click character to open modal with character info
-const clickCharacter = (characterCard) => {
-  let characterCardBackground = document.getElementById(`character-card-background`)
-  characterCardBackground.style.display = "none"
+const clickCharacter = (character) => {
+  let characterBackground = document.getElementById(`character-card-background`)
+  characterBackground.style.display = "none"
   characterCard.addEventListener("click", () => {
     // Show #character-card-background
-    characterCardBackground.style.display = "block"
+    characterBackground.style.display = "block"
     // Populate character info
-    document.getElementById('character-card-name').textContent = characterCard.name
-    document.getElementById('character-species').textContent = characterCard.species
-    document.getElementById('character-homeworld').textContent = characterCard.homeworld
-    document.getElementById('character-birth-year').textContent = characterCard.birth_year
-    document.getElementById('character-height').textContent = characterCard.height
-    document.getElementById('character-mass').textContent = characterCard.mass
-    document.getElementById('character-hair-color').textContent = characterCard.hair_color
-    document.getElementById('character-skin-color').textContent = characterCard.skin_color
-    document.getElementById('character-eye-color').textContent = characterCard.eye_color
-    document.getElementById('character-films').textContent = characterCard.films
-    characterSelected = characterCard.id
-    console.log(characterSelected)
+    document.querySelector('#character-card-container-image img').src = character.image_url
+    document.getElementById('character-card-name').textContent = character.name
+    document.getElementById('character-species').textContent = character.species
+    document.getElementById('character-homeworld').textContent = character.homeworld
+    document.getElementById('character-birth-year').textContent = character.birth_year
+    document.getElementById('character-height').textContent = character.height
+    document.getElementById('character-mass').textContent = character.mass
+    document.getElementById('character-hair-color').textContent = character.hair_color
+    document.getElementById('character-skin-color').textContent = character.skin_color
+    document.getElementById('character-eye-color').textContent = character.eye_color
+    document.getElementById('character-films').textContent = character.films
   })
-  characterCardBackground.addEventListener("click", () => {
+  characterBackground.addEventListener("click", () => {
     // Hide #character-card-background
-    characterCardBackground.style.display = "none"
+    characterBackground.style.display = "none"
   })
 }
 
