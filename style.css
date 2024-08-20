@@ -43,7 +43,7 @@ header, #main {
     width: 100%;
     clear: both;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 5px;d
 }
 
 header {
@@ -57,7 +57,7 @@ header {
 }
 
 #main {
-    padding-top: 80px;
+    padding-top: 70px;
 }
 
 #header-title {
@@ -97,7 +97,7 @@ select option {
     color: yellow;
     font-family: Star Jedi;
     transform-origin: 50% 100%;
-	transform: perspective(300px) rotateX(25deg);
+	transform: perspective(300px) rotateX(30deg);
 }
 
 #characters-container {
